@@ -15,7 +15,7 @@ $itemTmpl = new template('menu.item'); // menüü elemendi mall
 $itemTmpl->set('name', 'avaleht');
 // määrata menüüs väljastava elemendiga seotud link
 // http://anna.ikt.khk.ee/oop_vs17_2/index.php?control=esimene
-$link = $http->getLink(array('control'=>'avaleht'));
+$link = $http->getLink();
 $itemTmpl->set('link', $link);
 // lisame antud element menüüsse
 $menuItem = $itemTmpl->parse(); // string, mis sisaldab ühe nimekirja elemendi lingiga
