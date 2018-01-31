@@ -13,6 +13,10 @@ define('VIEWS_DIR', 'views/');
 define('CONTROL_DIR', 'controllers/');
 define('LIB_DIR', 'lib/');
 
+// lisame vaikimisi kontrolleri faili nime
+define('DEFAULT_CONTROL', 'default');
+
+
 // nõuame abifunktisoonide olemasolu
 require_once LIB_DIR.'utils.php';
 
