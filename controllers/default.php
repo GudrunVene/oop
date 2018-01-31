@@ -6,4 +6,4 @@
  * Time: 11:00
  */
 
-$maiinTmpl->set('content', 'Vaikimisi sisu');
+$mainTmpl->set('content', 'Vaikimisi sisu');
