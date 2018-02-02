@@ -24,6 +24,7 @@ require_once LIB_DIR.'utils.php';
 require_once MODEL_DIR.'template.php'; // html vaade failide töötlus
 require_once MODEL_DIR.'http.php'; // HTTP töötlus klass
 require_once MODEL_DIR.'linkobject.php'; // Lingi töötluse klass
+require_once MODEL_DIR.'mysql.php'; // db töötluse klass
 
 // loome vajalikud objektid, mis on pidevalt tööl
 $http = new linkobject();
