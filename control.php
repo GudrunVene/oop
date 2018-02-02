@@ -12,5 +12,7 @@ if(file_exists($file) and is_file($file) and is_readable($file)){
 } else {
     // kui ei ole veel faili või ei ole veel midagi valitud
     $file = CONTROL_DIR.DEFAULT_CONTROL.'.php';
+    // control element peaks omama mitte see väärtus, mille ma edastan vaid defaulti
+    $http->set('control', DEFAULT_CONTROL);
     require_once $file;
 }
