@@ -32,4 +32,4 @@ require_once 'db_conf.php';
 // loome vajalikud objektid, mis on pidevalt tööl
 $http = new linkobject(); // http ja lingi objekt
 // anmebaasi objekt
-$db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME)
+$db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
