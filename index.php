@@ -25,5 +25,11 @@ require_once 'menu.php';
 // väljastame sisuga täidetud mall
 echo $mainTmpl->parse();
 // kontrollime $http objekti tööd
-$control = $http->get('control');
-echo $control.'<br />';
+//$control = $http->get('control');
+//echo $control.'<br />';
+
+echo '<pre>';
+print_r($http->vars);
+echo '</pre>';
+
+
