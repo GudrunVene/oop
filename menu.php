@@ -18,7 +18,9 @@ $result = $db->getData($sql); // loeme andmed anmebaasist
 // kui andmed on andmebaasis olemas siis loome menüü nende põhjal
 if($result != false){
     foreach($result as $page){
-        $itemTmpl->set('name', $page['title']);
+        $itemTmpl->set('name', $page['title'])
+        $link = €http->getLink(array('page_id'=>$page['content_id']));
+        $itemTmpl->set('link', $link);
         $menuTmpl->add('menu_items', $itemTmpl->parse());
     }
 }
