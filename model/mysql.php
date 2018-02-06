@@ -50,6 +50,21 @@ class mysql
             echo 'Probleem päringuga' . $sql . '<br/>';
             return false;
         }
-        return result;
+        return $result;
+    }
+
+    // andmete lugemine päringust
+    function getData($sql){
+        $result = $this->query($sql); // saadame päring andmebaasi
+        $data = array(); // päringu andmete salvestamiseks
+        // nii kaua kui olemas andmed
+        while ($row = mysqli_fetch_assoc($result)){
+            $data[] = $row; // loeme need ridade kaupa
+        }
+        // kui probleem andmete lugemisega
+        if(count($data) == 0){
+            return false;
+        }
+        return $data; // või tagastame korralikud andmed
     }
 }
