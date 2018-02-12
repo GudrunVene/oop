@@ -31,7 +31,7 @@ class http
 
     // vajalike konstandite defineerimine
     function initConst(){
-        $constNames = array('HTTP_HOST', 'SCRIPT_NAME');
+        $constNames = array('HTTP_HOST', 'SCRIPT_NAME', 'REMOTE_ADDR');
         foreach ($constNames as $constName){
             if(!defined($constName) and isset($this->server[$constName])){
                 define($constName, $this->server[$constName]);
