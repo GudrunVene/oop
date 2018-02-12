@@ -34,7 +34,7 @@ define('USER_ID', 0);
 // näitame sellele kasutajale logi sisse menüüd
 
     $itemTmpl->set('name', 'logi sisse');
-    $link = $http->getLink(array('page_id'=>'login'));
+    $link = $http->getLink(array('control'=>'login'));
     $itemTmpl->set('link', $link);
     $menuTmpl->add('menu_items', $itemTmpl->parse());
 
