@@ -21,6 +21,9 @@ $result = $db->getData($sql);
 if($result != false){
     // logime kasuraja sisse
     // ja avame talle sessiooni
+    // ... veel lahendamata
+    // suuname pealehele
+    $http->redirect();
 }else{
     // probleem sisse logimisega
     // suuname tagasi sisselogimisvormile
