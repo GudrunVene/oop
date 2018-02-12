@@ -13,7 +13,8 @@ class session
     var $vars = array(); //sessiooni ajal tekkinud andmed
     var $http = false; // tuleb link(ehk otseühendus) http objektile
     var $db = false; // otseühendus db objektiga
-    var $timeout = 1800; // sessiooni pikkus 30 minutit
+    var $timeout = 1800; // sessiooni pikkus 30 min
+
     /**
      * session constructor.
      * @param bool $http
@@ -36,15 +37,21 @@ class session
         'username' => 'Anonüümne'
          );
     }
-// loome sessiooni id
-$sid =md5(uniqid(time().nt_rand(1, 1000), true));
-// päring sessiooni andmete sisestamiseks andmebaasi
-$sql = 'INSERT INTO session SET '.'sid='.fixDB($sid).'user_id='.fixDB($user['user_id']).',','user_data='.fixDB(serialize($user)).','.'login_ip='.fixDB(REMOTE_ADDR).','.'created=NOW()';
-// saadame päringu anmebaasi
-$this->db->query($sql);
-// määrame sessioonile loodud id
-$this->sid = $sid;
-// paneme antud väärtuse ka veebi andmete sisse
-$this->http->set('sid', $sid);
-}
+    // loome sessiooni id
+    $sid =md5(uniqid(time().nt_rand(1, 1000), true));
+    // päring sessiooni andmete sisestamiseks andmebaasi
+    $sql = 'INSERT INTO session SET '.'sid='.fixDB($sid).'user_id='.fixDB($user['user_id']).',','user_data='.fixDB(serialize($user)).','.'login_ip='.fixDB(REMOTE_ADDR).','.'created=NOW()';
+    // saadame päringu anmebaasi
+    $this->db->query($sql);
+    // määrame sessioonile loodud id
+    $this->sid = $sid;
+    // paneme antud väärtuse ka veebi andmete sisse
+    $this->http->set('sid', $sid);
+    }
+    // sessiooni tabeli puhastamine vananenud sessioonidest
+    function  clearSessions(){
+        $sql = 'DELETE FROM session WHERE '.time().' - UNIX_TIMESTAMP(changed) > '.
+            $this->timeout;
+        $this->db->query($sql);
+    }
 }
